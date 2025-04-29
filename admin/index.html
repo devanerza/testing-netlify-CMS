@@ -8,5 +8,15 @@
 </head>
 <body>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        CMS.registerPreviewTemplate('pages', PagePreview);
+        
+        function PagePreview({ entry, widgetFor }) {
+          return `
+            <h1>${entry.getIn(['data', 'title'])}</h1>
+            <div>${widgetFor('body')}</div>
+          `;
+        }
+      </script>
 </body>
 </html>
