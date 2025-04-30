@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Admin</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-        import CMS from "decap-cms-app";
+        // Initialize the CMS
+        const CMS = window.CMS;
         CMS.init();
-        CMS.registerPreviewTemplate("my-template", MyTemplate);
+
+        // Register preview templates
+        CMS.registerPreviewTemplate('services', ServicesPreview);
+
+        // Define preview templates
+        function ServicesPreview({ entry, widgetFor }) {
+            return `
+                <div class="preview">
+                    <h1>${entry.getIn(['data', 'title'])}</h1>
+                    <p>${entry.getIn(['data', 'description'])}</p>
+                    ${widgetFor('image')}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
