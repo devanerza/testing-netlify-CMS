@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Admin</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-        CMS.registerPreviewTemplate('pages', PagePreview);
-        
-        function PagePreview({ entry, widgetFor }) {
-          return `
-            <h1>${entry.getIn(['data', 'title'])}</h1>
-            <div>${widgetFor('body')}</div>
-          `;
-        }
-      </script>
+        import CMS from "decap-cms-app";
+        CMS.init();
+        CMS.registerPreviewTemplate("my-template", MyTemplate);
+    </script>
 </body>
 </html>

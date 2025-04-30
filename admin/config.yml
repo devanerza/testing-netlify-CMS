@@ -1,6 +1,11 @@
 backend:
   name: git-gateway
   branch: master
+  repo: https://github.com/devanerza/testing-netlify-CMS.git
+  base_url: https://api.github.com/repos/devanerza/testing-netlify-CMS/
+  auth_type: implicit
+  client_id: Ov23li0lzVw3hly5Garl
+  client_secret: 6f937403acf3bd3386ea92bb525f8d79248e476d
 local_backend: true # For local testing
 media_folder: "images/uploads" # Where images are stored
 public_folder: "/images/uploads"
